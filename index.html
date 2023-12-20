@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="slider">
+        <button class="btn left" onclick="plusSlides(1)">
+            &lt; </button>
+        <div class="imges">
+            <img src="nature2.avif" alt="">
+            <img src="neature1.avif" alt="">
+            <img src="something.avif" alt="">
+        </div>
+        <div class="btn right" onclick="plusSlides(-1)"> &gt;</div>
+    </section>
+
+    <script>
+        let slides = document.querySelectorAll(".imges")
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.querySelectorAll(".imges img")
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = 3;
+            }
+            slides.forEach((slid) => {
+                slid.style.display = 'none'
+            })
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
